@@ -1,0 +1,9 @@
+faiss-cpu
+langchain_community
+langchain
+youtube-transcript-api
+requests
+python-dotenv
+mistralai
+sentence-transformers
+langchain_huggingface
