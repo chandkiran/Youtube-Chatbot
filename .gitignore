@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Environments
+.env
+.venv/
+venv/
+
+
+# IDEs/editors
+.vscode/
+.idea/
+*.swp
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Logs and debug
+*.log
+
+# LangChain / FAISS
+index.faiss
+index.pkl
+
+
+
+# Mistral API Key or other credentials
+MISTRAL_API_KEY

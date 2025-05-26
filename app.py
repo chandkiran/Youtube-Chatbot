@@ -5,6 +5,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from youtube_transcript_api import YouTubeTranscriptApi, TranscriptsDisabled
 from langchain_community.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_core.prompts import PromptTemplate
 load_dotenv()
 
 api_key = os.environ["MISTRAL_API_KEY"]
@@ -13,10 +14,10 @@ model = "mistral-large-latest"
 client = Mistral(api_key=api_key)
 
 # Indexing
-video_id = "LPZh9BOjkQs"
+video_id = "3dhcmeOTZ_Q"
 
 try:
-    transcript_list = YouTubeTranscriptApi.get_transcript(video_id, languages=["en"])
+    transcript_list = YouTubeTranscriptApi.get_transcript(video_id, languages=['en'])
     
 except TranscriptsDisabled:
     print("No caption available for this video")
@@ -41,5 +42,44 @@ if transcript_list:
         # Retriever formed using vector store and searching on basis of similarity and returning top four similar chunks
 
         retriever = vector_store.as_retriever(search_type="similarity",search_kwargs={"k": 4})
-        retriever_result=retriever.invoke("What is the video about?")
-        print(retriever_result)
+        retriever_result=retriever.invoke("What is linear regression?")
+        # print(retriever_result)
+       
+       
+    #    Build prompt template
+        prompt = PromptTemplate(
+    template=""" 
+        You are a helpful assistant.
+        Answer only from the provided transcript context.
+        If the context is insufficient, say "I don't know."
+        
+        Context: {context} 
+        Question: {query}
+    """,
+    input_variables=["context", "query"]
+)
+# Prepare inputs for the prompt
+context = "\n\n".join(doc.page_content for doc in retriever_result)
+query = "What is linear regression?"
+
+# Format the final prompt string
+final_prompt = prompt.format(context=context, query=query)
+
+# print(final_prompt)
+
+# Call Mistral LLM
+response = client.chat.complete(
+    model=model,
+    messages=[
+        {
+            "role": "user",
+            "content": final_prompt
+        }
+    ],
+    temperature=0.1
+)
+
+# Generation
+
+print(response.choices[0].message.content)
+
