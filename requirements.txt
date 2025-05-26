@@ -7,3 +7,4 @@ python-dotenv
 mistralai
 sentence-transformers
 langchain_huggingface
+langchain_core
