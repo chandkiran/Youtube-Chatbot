@@ -8,3 +8,7 @@ mistralai
 sentence-transformers
 langchain_huggingface
 langchain_core
+streamlit
+fastapi
+uvicorn
+fastapi
