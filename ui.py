@@ -1,13 +1,21 @@
 import streamlit as st
 import requests
+import re
+
+def extract_video_id(url):
+    """Extracts video ID from a full YouTube URL."""
+    regex = r"(?:v=|\/)([0-9A-Za-z_-]{11}).*"
+    match = re.search(regex, url)
+    return match.group(1) if match else None
 
 st.title("🎥 YouTube Chatbot")
 
-video_id = st.text_input("Enter YouTube Video ID")
+video_url = st.text_input("Enter the youtube video URL")
 question = st.text_input("Ask a question about the video")
 
 if st.button("Ask"):
-    if video_id and question:
+    if video_url and question:
+        video_id = extract_video_id(video_url)
         with st.spinner("Getting answer..."):
             try:
                 res = requests.post(
