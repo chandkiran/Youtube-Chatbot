@@ -86,7 +86,7 @@ def build_chain(video_id: str) -> Runnable:
 
         # Test the chain
         result = main_chain.invoke("What is linear regression?")
-        print(f"Test Result: {result}")
+        # print(f"Test Result: {result}")
 
         return main_chain
 
