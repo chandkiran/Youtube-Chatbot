@@ -15,8 +15,9 @@ The YouTube Chatbot is a web-based AI application that allows users to ask quest
 ## Installation 
 1. Clone the Repository
 
-git clone https://github.com/yourusername/youtube-chatbot-mistral.git
 '''bash
+git clone https://github.com/yourusername/youtube-chatbot-mistral.git
+
 cd youtube-chatbot-mistral
 
 2.Create and activate a virtual environment
