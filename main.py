@@ -7,12 +7,12 @@ import os
 import traceback
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 from src.model import build_chain
-
+# creating and instanace of flask api
 app=FastAPI()
 class ChatInput(BaseModel):
     query: str
     video_id: str
-
+# Post request handler for chat
 @app.post("/chat")
 async def chat_handler(data: ChatInput):
     try:

@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 import re
-
+# Function to extract video ID from YouTube url
 def extract_video_id(url):
     """Extracts video ID from a full YouTube URL."""
     regex = r"(?:v=|\/)([0-9A-Za-z_-]{11}).*"
@@ -27,11 +27,11 @@ if st.button("Ask"):
                     if "response" in data:
                         st.markdown(f"**Answer:** {data['response']}")
                     elif "error" in data:
-                        st.error(f"❌ Error: {data['error']}")
+                        st.error(f" Error: {data['error']}")
                     else:
                         st.error("Unexpected response format.")
                 else:
-                    st.error("❌ Failed to connect to backend.")
+                    st.error(" Failed to connect to backend.")
             except Exception as e:
                 st.error(f"Error: {e}")
     else:
