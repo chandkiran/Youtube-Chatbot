@@ -21,13 +21,13 @@ The YouTube Chatbot is a web-based AI application that allows users to ask quest
 ```plaintext
 youtube-chatbot-mistral/
 ├── app/
-│   ├── __init__.py
-│   ├── main.py           # FastAPI backend
-│   └── utils.py          # Helper functions
+│   ├── model.py          #llm model
+│  
 ├── ui.py                 # Streamlit frontend
 ├── requirements.txt      # Project dependencies
 ├── README.md             # Project documentation
 ├── .gitignore
+└── main.py               # Fast API
 
 ```
 
@@ -48,8 +48,6 @@ cd youtube-chatbot-mistral
 python -m venv venv
 # On Windows:
 venv\Scripts\activate
-# On Mac/Linux:
-source venv/bin/activate
 ```
 
 3. **Install dependencies**
@@ -103,6 +101,6 @@ streamlit run ui.py
 
 ---
 
-## 📝 License
+##  License
 
 This project is licensed under the MIT License.
