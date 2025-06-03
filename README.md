@@ -13,7 +13,7 @@ The YouTube Chatbot is a web-based AI application that allows users to ask quest
 
 ## Installation 
 1. Clone the Repository
-```bash
+
 git clone https://github.com/yourusername/youtube-chatbot-mistral.git
 cd youtube-chatbot-mistral
 
@@ -23,4 +23,26 @@ venv\Scripts\activate
 
 3.Install dependencies
 pip install -r requirements.txt
+
+## Run FastAPI Backend
+uvicorn main:app --reload
+
+## Run Streamlit Frontend
+streamlit run ui.py
+
+## Example usage
+a.Request Body:
+{
+  "query": "What is linear regression?",
+  "video_id": "dQw4w9WgXcQ"
+}
+
+b.Response:
+{
+  "response": "Linear regression is ..."
+}
+
+## Screenshots
+![image](https://github.com/user-attachments/assets/9da6f70d-254c-48b8-afaf-1867252c9be1)
+
   
