@@ -1,8 +1,26 @@
-A conversational AI system that allows users to ask questions about a YouTube video. The chatbot extracts the transcript of the video, embeds it, and responds intelligently using a Large Language Model (LLM) from Mistral AI.
-Features
+The YouTube Chatbot is a web-based AI application that allows users to ask questions about the content of YouTube videos by simply providing a link. It uses FastAPI for backend services, Streamlit for a clean user interface, and Mistral AI to answer questions based on the video’s transcript. YouTube Chatbot with FastAPI, Streamlit & Mistral AI
+
+
+
+
+##  Features
 - Accepts YouTube video URLs via a user-friendly Streamlit UI.
 - Extracts video transcripts using `youtube-transcript-api`.
 - Splits and embeds transcript using HuggingFace sentence transformers.
 - Stores and retrieves relevant content using FAISS vector store.
 - Uses a custom prompt to ask questions and answer using Mistral AI.
 - Responds via FastAPI endpoint with error handling and graceful fallback.
+
+## Installation 
+1. Clone the Repository
+```bash
+git clone https://github.com/yourusername/youtube-chatbot-mistral.git
+cd youtube-chatbot-mistral
+
+2.Create and activate a virtual environment
+python -m venv venv
+venv\Scripts\activate
+
+3.Install dependencies
+pip install -r requirements.txt
+  
