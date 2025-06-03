@@ -1,3 +1,4 @@
+# **Youtube chatbot**
 The YouTube Chatbot is a web-based AI application that allows users to ask questions about the content of YouTube videos by simply providing a link. It uses FastAPI for backend services, Streamlit for a clean user interface, and Mistral AI to answer questions based on the video’s transcript. YouTube Chatbot with FastAPI, Streamlit & Mistral AI
 
 ---
@@ -13,21 +14,22 @@ The YouTube Chatbot is a web-based AI application that allows users to ask quest
 ---
 
 ## Installation 
-1. Clone the Repository
 
-'''bash
+1. **Clone the Repository**
+```bash
 git clone https://github.com/yourusername/youtube-chatbot-mistral.git
-
 cd youtube-chatbot-mistral
 
 2.Create and activate a virtual environment
-'''bash
+**On Windows:**
+```bash
 python -m venv venv
 venv\Scripts\activate
 
 3.Install dependencies
 '''bash
 pip install -r requirements.txt
+
 ---
 ## Run FastAPI Backend
 '''bash
@@ -38,8 +40,8 @@ uvicorn main:app --reload
 streamlit run ui.py
 ---
 ## Example usage
-a.Request Body:
 '''bash
+a.Request Body:
 {
   "query": "What is linear regression?",
   "video_id": "dQw4w9WgXcQ"
